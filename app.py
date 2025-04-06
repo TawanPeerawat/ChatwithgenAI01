@@ -10,7 +10,7 @@ try:
         st.session_state.chat = model.start_chat(history=[])
     st.title('Gemini Pro Test')
 
-    def role_to_streamlit(role:str) -> str:
+    def role_to_streamlit(role: str) -> str:
         if role == 'model':
             return 'assistant'
         else:
@@ -25,5 +25,6 @@ try:
         response = st.session_state.chat.send_message(prompt)
         with st.chat_message('assistant'):
             st.markdown(response.text)
+
 except Exception as e:
     st.error(f'An error occurred {e}')
